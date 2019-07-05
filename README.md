@@ -69,4 +69,29 @@ Adicione ao arquivo `package.json`
 ```
 
 Mova o diretório `config` para dentro de `src`
+
 Dentro de `src`, crie um diretório nomeado `database` e mova para dentro dele os diretórios `migrations` e `seeders`
+
+Renomeie o arquivo `src/config/config.json` para `src/config/database.js`
+
+Crie um arquivo .sequelizerc para configurar o sequelize para enxergar os paths modificados
+
+```
+const path = require('path')
+
+module.exports = {
+  'config': path.resolve('src','config','database.js'),
+  'models-path': path.resolve('src','app','models'),
+  'seeders-path': path.resolve('src','database','seeders'),
+  'migrations-path': path.resolve('src','database','migrations'),
+}
+```
+
+Teste a criação das migrations com
+
+```
+npx sequelize migration:create --name=create-users
+```
+
+Um arquivo de migration deve estar no diretório
+`src\database\migrations`
