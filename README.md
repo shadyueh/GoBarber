@@ -59,3 +59,14 @@ Adicione ao arquivo `package.json`
   "start": "nodemon src/index.js"
 }
 ```
+
+### Configuração do Sequelize
+
+```
+❯ yarn add sequelize
+❯ yarn add sequelize-cli -D
+❯ npx sequelize init
+```
+
+Mova o diretório `config` para dentro de `src`
+Dentro de `src`, crie um diretório nomeado `database` e mova para dentro dele os diretórios `migrations` e `seeders`
