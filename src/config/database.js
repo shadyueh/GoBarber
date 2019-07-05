@@ -1,26 +1,13 @@
-{
-  "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+module.exports = {
+  // instale o modulo do postgres -  o yarn add pg
+  dialect: 'postgres',
+  host: '127.0.0.1',
+  username: 'docker',
+  database: 'gonodemodulo2',
+  operatorAliases: false,
+  define: {
+    timestamps: true,
+    underscored: true,
+    underscoredAll: true
   }
 }
