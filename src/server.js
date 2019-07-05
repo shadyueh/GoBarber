@@ -28,7 +28,7 @@ class App {
     this.express.set('view engine', 'njk')
   }
   routes () {
-
+    this.express.use(require('./routes'))
   }
 }
 
