@@ -90,8 +90,59 @@ module.exports = {
 Teste a criação das migrations com
 
 ```
-npx sequelize migration:create --name=create-users
+❯ npx sequelize migration:create --name=create-users
 ```
 
 Um arquivo de migration deve estar no diretório
 `src\database\migrations`
+
+### Instalação do Postgres
+
+Instale o docker.
+As instruções para para ubuntu linux estão neste [link](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce).
+
+Teste a instalação com
+
+```
+❯ docker -v
+```
+
+Efetue login no docker através do cli usando o id criado no docker hub.
+
+Instale o serviço como `database`, redirecionando a porta do PostgreSQL para a mesma no host OS, em modo `detached`, com a imagem `kartoza/postgis`.
+
+O usuário e senha padrões são `docker:docker`
+
+```
+❯ docker run --name database -p 5432:5432 -d -t kartoza/postgis
+```
+
+Verifique se o serviço está em execução com
+
+```
+❯ docker ps
+```
+
+Uma vm com a imagem informada deve estar na lista.
+
+Daí já é possível conectar à database do container com qualquer cliente SGBD postgres usando as configurações:
+
+```
+host: localhost
+database: postgres
+port: 5432
+user: docker
+password: docker
+```
+
+Para parar o container
+
+```
+❯ docker stop <ID ou alias do container>
+```
+
+Para iniciar um container existente
+
+```
+❯ docker start <ID ou alias do container>
+```
